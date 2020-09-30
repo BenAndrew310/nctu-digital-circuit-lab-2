@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2017/09/19 13:54:59
+// Create Date: 09/30/2020 07:47:20 PM
 // Design Name: 
 // Module Name: mmult_tb
 // Project Name: 
@@ -19,8 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module mmult_tb;
 
+module mmult_tb;
 // ---------------------------------------------------------------------
 // Begin of the simulation code for clock and reset_n signals
 //
@@ -126,5 +126,4 @@ end
 //
 //  End of the testbench code
 // ---------------------------------------------------------------------
-
 endmodule
