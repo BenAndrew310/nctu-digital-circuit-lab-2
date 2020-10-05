@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: 安本林
 // 
 // Create Date: 09/30/2020 07:44:36 PM
 // Design Name: 
@@ -33,8 +33,8 @@ module mmult(
 	output reg [0:9*17-1] C_mat // The result of A x B.
     );
     
-    reg val=0;
-    reg flag=0;
+    reg val=0; // 1 bit register to which the wire valid will be assigned to
+    reg flag=0; // 1 bit register to flag when C_mat is available to be read by the result register in the testbench
     integer i,row_number=0,column_number=0;
     
     assign valid = val;
