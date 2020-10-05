@@ -34,12 +34,19 @@ module mmult(
     );
     
     reg val=0;
+    reg flag=0;
     integer i,row_number=0,column_number=0;
     
     assign valid = val;
     
     always @ (posedge clk, reset_n) begin
-        C_mat[0:152] <= 0;
+        if(!enable||!reset_n) begin
+            C_mat[0:152] <= 0;
+            flag <= 0;
+            row_number = 0;
+            column_number = 0;
+        end
+        val <= 0;
         if (enable) begin
             for (i=0;i<9;i=i+1)
                 begin
@@ -48,13 +55,15 @@ module mmult(
                     if (i%3==2) begin
                         row_number=row_number+1;
                         column_number=0;
-//                        if (i>=8) begin
-//                            val = 1;
-//                        end
                     end
+                    if (i==8) flag=1;
                 end
-                val = 1;
         end
-    
     end
+    
+    always @ (posedge flag) begin
+        val <= 1;
+        flag <= 0;
+    end
+    
 endmodule
